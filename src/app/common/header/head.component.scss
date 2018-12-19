@@ -1,0 +1,39 @@
+@import 'variables';
+.navbar {
+  padding: 20px;
+  margin-bottom: 40px;
+
+
+  .bwm-search {
+    height: 50px;
+    width: 300px;
+  }
+
+
+  .navbar-brand {
+    margin-right: 30px;
+    font-size: 30px;
+    letter-spacing: 1px;
+    color: $cli_red;
+    font-weight: 500;
+  }
+
+
+  .nav-item {
+    font-size: 14px;
+  }
+
+
+  .btn-bwm-search {
+    border-color: $cli_red;
+    color: $cli_red;
+
+
+    &:hover, &:focus, &:active {
+      background-color: transparent;
+      border-color: $cli_red !important;
+      color: $cli_red !important;
+      box-shadow: none;
+    }
+  }
+}
