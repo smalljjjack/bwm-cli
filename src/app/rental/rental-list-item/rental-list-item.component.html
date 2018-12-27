@@ -1,9 +1,9 @@
-<a routerLink="/rentals/{{CurrRental.id}}">
+<a routerLink="/rentals/{{CurrRental._id}}">
 <div class="card bwm-card">
-  <img class="card-img-top" src="http://via.placeholder.com/350x250" alt="">
+  <img class="card-img-top" src={{CurrRental.image}} alt="">
   <div class="card-block">
-    <h6 class="card-subtitle">{{CurrRental.title}}; {{CurrRental.city}}</h6>
-    <h4 class="card-title">{{CurrRental.description}}</h4>
+    <h6 class="card-subtitle {{CurrRental.category}}">{{CurrRental.shared ? 'Shared' : 'Whole'}} {{CurrRental.category}}&#183; {{CurrRental.city}}</h6>
+    <h4 class="card-title">{{CurrRental.title}}</h4>
     <p class="card-text">${{CurrRental.dailyRate}} per Night &#183; Free Cancelation</p>
   </div>
 </div>
