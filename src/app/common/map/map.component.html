@@ -1,0 +1,7 @@
+<agm-map (mapReady)="mapReadyHandler()" [latitude]="lat" [longitude]="lng" [zoom]="13">
+  <agm-circle [latitude]="lat" [longitude]="lng" [radius]="800" [fillColor] = "'#F44336'" [fillOpacity]="0.4" *ngIf="!isPositionError">
+  </agm-circle>
+  <agm-info-window [latitude]="lat" [longitude]="lng" [maxWidth]="300" [isOpen]=true *ngIf="isPositionError">
+    Sorry we couldnt found the location of your target. Please reload the page or try other apartment.
+  </agm-info-window>
+</agm-map>
