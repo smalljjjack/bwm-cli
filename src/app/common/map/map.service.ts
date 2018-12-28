@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { Observable} from 'rxjs';
 import { CamelizePipe } from 'ngx-pipes';
+import { of } from 'rxjs/observable/of'
 
 @Injectable()
 export class MapService{
@@ -43,7 +44,7 @@ export class MapService{
 
   public getGeoLocation(location: string): Observable<any> {
       if(this.isLocationCacehd(location)){
-        return Observable.of(this.locationCache[this.camelize(location)]);
+        return of(this.locationCache[this.camelize(location)]);
       }else{
         return this.geocodeLocation(location);
       }
