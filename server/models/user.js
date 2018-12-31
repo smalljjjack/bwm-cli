@@ -8,4 +8,8 @@ const userSchema = new Schema({
   rentals: [{type: Schema.Types.ObjectId, ref: 'Rental'}],
 });
 
+userSchema.methods.hasSamePassword = function(requestedPassword) {
+  return requestedPassword == this.password;
+}
+
 module.exports = mongoose.model('User', userSchema);
