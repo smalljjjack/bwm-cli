@@ -12,6 +12,7 @@ const rentalSchema = new Schema({
   dailyRate:{type: Number, required: true},
   createAt:{type: String, default: Date.now},
   bedrooms:Number,
+  user: {type: Schema.Types.ObjectId, ref: 'User'},
 });
 
 module.exports = mongoose.model('Rental', rentalSchema);
