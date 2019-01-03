@@ -14,15 +14,14 @@ export class AuthService{
 
   public login(userData: any): Observable<any>{
     return this.http.post('/api/v1/users/auth', userData).map(
-      (token) => {
-        return this.saveToken(token+"");
+      (token: string) => {
+        return this.saveToken(token);
       }
     );
   }
 
   private saveToken(token: string): string{
     localStorage.setItem('bwm_auth', token);
-    console.log(localStorage.getItem("bwm_auth"));
     return token;
   }
 }

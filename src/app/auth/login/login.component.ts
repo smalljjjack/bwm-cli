@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms'
 import { AuthService } from '../shared/auth.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'bwm-login',
@@ -12,11 +12,17 @@ export class LoginComponent implements OnInit {
 
   loginForm : FormGroup;
   errors: any[] = [];
+  notifyMessages: string ='';
 
-  constructor(private formB : FormBuilder, private auth : AuthService, private router: Router) { }
+  constructor(private formB : FormBuilder, private auth : AuthService, private router: Router, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
     this.initForm();
+    this.activatedRoute.params.subscribe((params) => {
+      if(params['registed'] == 'successed'){
+        this.notifyMessages = 'you have been registerd successfully. Please login'
+      }
+    });
   }
 
   initForm(){
