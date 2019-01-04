@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import { HeaderComponent} from './common/header/head.component';
 import { RentalModule } from './rental/rental.module';
 import { RentalComponent } from './rental/rental.component';
-
+import { AuthModule } from './auth/auth.module';
 const routes: Routes = [
   {path:'', redirectTo: '/rentals', pathMatch: 'full'},
 ]
@@ -22,6 +22,7 @@ const routes: Routes = [
     BrowserModule,
     AppRoutingModule,
     RentalModule,
+    AuthModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
