@@ -13,6 +13,7 @@ const rentalSchema = new Schema({
   createAt:{type: String, default: Date.now},
   bedrooms:Number,
   user: {type: Schema.Types.ObjectId, ref: 'User'},
+  bookings: [{type: Schema.Types.ObjectId, ref: 'Booking'}],
 });
 
 module.exports = mongoose.model('Rental', rentalSchema);

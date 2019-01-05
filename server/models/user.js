@@ -6,6 +6,7 @@ const userSchema = new Schema({
   email: {type:String, required: true, unique:true, lowercase:true, max:[32, 'invalid email'], min:[4, 'invalid email']},
   password: {type:String, required: true, max:[32, 'invalid password'], min:[4, 'invalid word']},
   rentals: [{type: Schema.Types.ObjectId, ref: 'Rental'}],
+  bookings: [{type: Schema.Types.ObjectId, ref: 'Booking'}],
 });
 
 userSchema.methods.hasSamePassword = function(requestedPassword) {
