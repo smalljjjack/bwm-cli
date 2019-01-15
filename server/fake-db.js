@@ -1,10 +1,13 @@
 const Rental = require('./models/rental');
 const User = require('./models/user');
+const Booking = require('./models/booking');
+
+const fakeDbData = require('./data.json');
 
 class FakeDb{
 
   constructor(){
-    this.rentals = [
+    this.rentals = fakeDbData.rentals;/*[
         {
         title: "Central Apartment 5",
         city: "New York",
@@ -53,9 +56,9 @@ class FakeDb{
       createdAt: "24/12/2017",
       bedrooms: 3,
       }
-    ];
+    ]*/
 
-    this.users=[{
+    this.users= fakeDbData.users;/*[{
       username: "TestUser",
       email:"test@test.com",
       password:"testtest",
@@ -65,11 +68,12 @@ class FakeDb{
       email:"jack@test.com",
       password:"testtest",
       passwordConfirmation: "testtest",
-    }];
+    }];*/
   }
   async cleanDb(){
     await User.remove({});
     await Rental.remove({});
+    await Booking.remove({});
   }
 
   pushDataToDb(){
