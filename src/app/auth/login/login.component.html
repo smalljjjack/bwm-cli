@@ -2,7 +2,7 @@
   <div class="bwm-form">
     <div class="row">
       <div class="col-md-5">
-        <h1>Login</h1>
+        <h1 class="page-title">Login</h1>
         <div *ngIf="notifyMessages" class="alert alert-success">
           {{notifyMessages}}
         </div>
@@ -15,7 +15,7 @@
                    formControlName="email"
                    required>
           </div>
-          
+
           <div class="form-group">
             <label for="password">Password</label>
             <input type="password"
