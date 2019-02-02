@@ -3,6 +3,8 @@ import { ActivatedRoute } from '@angular/router';
 import { RentalService } from '../shared/rental.service';
 import { Rental } from '../shared/rental.model';
 
+import {HttpErrorResponse } from '@angular/common/http';
+
 @Component({
   selector: 'bwm-rental-search',
   templateUrl: './rental-search.component.html',
@@ -12,6 +14,7 @@ export class RentalSearchComponent implements OnInit {
 
   city : string;
   rentals: Rental[] = [];
+  errors = [];
 
   constructor(private route : ActivatedRoute, private rentalService: RentalService) { }
 
@@ -23,12 +26,15 @@ export class RentalSearchComponent implements OnInit {
   }
 
   getRentals() {
+    this.errors = [];
+    this.rentals = [];
+
     this.rentalService.getRentalByCity(this.city).subscribe(
       (rentals: Rental[]) => {
           this.rentals = rentals;
       },
-      () => {
-
+      (errorResponse: HttpErrorResponse) => {
+        this.errors = errorResponse.error.errors;
       }
     )
   }

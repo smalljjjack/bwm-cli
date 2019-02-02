@@ -6,10 +6,12 @@
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav ml-auto">
       <li>
-        <form class="form-inline">
-          <input class="form-control mr-sm-2 bwm-search" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success my-2 my-sm-0 btn-bwm-search" type="submit">Search</button>
-      </form>
+        <div class="form-inline">
+          <input #citySearch (keyup.enter)="search(citySearch.value)"
+            class="form-control mr-sm-2 bwm-search" type="search" placeholder="Search" aria-label="Search">
+          <button (click)="search(citySearch.value)"
+            class="btn btn-outline-success my-2 my-sm-0 btn-bwm-search" type="button">Search</button>
+      </div>
     </li>
       <ng-container *ngIf="!auth.isAuthenticated()">
         <li class="nav-item">
